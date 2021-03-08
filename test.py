@@ -27,7 +27,7 @@ def main(args):
     encoder = Encoder338(args.numChannels, args.numGroups).to(device)
     decoder = Decoder338(args.numChannels, args.numGroups).to(device)
 
-    # resume training
+    # load weights
     if args.encoderWeight and os.path.exists(args.encoderWeight):
         print(f'loading pre-trained encoder weights from {args.encoderWeight}')
         encoder.load_state_dict(torch.load(args.encoderWeight, map_location=device))
