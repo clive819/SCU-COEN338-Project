@@ -14,7 +14,7 @@ class PSNR(nn.Module):
     def forward(self, x: Tensor, y: Tensor) -> Tensor:
         mse = torch.mean((y - x) ** 2)
 
-        return 10 * torch.log10((255 ** 2) / mse)
+        return 10 * torch.log10(1 / mse)
 
 
 class SSIM(nn.Module):
